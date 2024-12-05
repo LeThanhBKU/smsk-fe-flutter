@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "590534796433",
+    "project_id": "smartsocket-140ce",
+    "storage_bucket": "smartsocket-140ce.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:590534796433:android:b49f93f669e5030e010b30",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYNtZS5FVeJIrcO3wMk_BaT0C3ntaKTjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

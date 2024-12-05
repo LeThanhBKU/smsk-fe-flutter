@@ -1,0 +1,33 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "smartsocket-140ce",
+          "appId": "1:590534796433:android:672f237d6dd3000b010b30",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "smartsocket-140ce",
+          "configurations": {
+            "android": "1:590534796433:android:672f237d6dd3000b010b30",
+            "ios": "1:590534796433:ios:d3edb6aeb42b60bd010b30",
+            "macos": "1:590534796433:ios:d3edb6aeb42b60bd010b30",
+            "web": "1:590534796433:web:7ac5b8d239b0e366010b30",
+            "windows": "1:590534796433:web:39f21aa799b78bcd010b30"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
