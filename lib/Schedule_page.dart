@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/config.dart';
 import 'schedule_list_page.dart';
 import 'schedule.dart'; // Import model Schedule
 import 'package:http/http.dart' as http;
@@ -24,7 +25,7 @@ class _SchedulePageState extends State<SchedulePage> {
     try {
       // Gửi yêu cầu POST
       final response = await http.post(
-        Uri.parse('http://172.20.10.3:8080/api/v1/schedules'),
+        Uri.parse('${Config.baseUrl}/api/v1/schedules'),
         headers: {
           'Content-Type': 'application/json',
         },

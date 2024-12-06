@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/config.dart';
 import 'schedule.dart'; // Import model Schedule
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -67,7 +68,7 @@ class _EditSchedulePageState extends State<EditSchedulePage> {
     try {
       final response = await http.patch(
         Uri.parse(
-            'http://172.20.10.3:8080/api/v1/schedules/' + (schedule.id ?? "")),
+            '${Config.baseUrl}/api/v1/schedules/' + (schedule.id ?? "")),
         headers: {
           'Content-Type': 'application/json',
         },
