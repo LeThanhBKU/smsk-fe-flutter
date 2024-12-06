@@ -92,7 +92,7 @@ class _SmartConfigScreenState extends State<SmartConfigScreen> {
     });
 
     try {
-      final response = await http.get(Uri.parse('http://$ipAddress/device'));
+      final response = await http.get(Uri.parse('http://${ipAddress}/device'));
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);

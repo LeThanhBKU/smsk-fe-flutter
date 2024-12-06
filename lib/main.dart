@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'home.dart'; // Import SmartConfigScreen
 import 'device.dart'; // Import DeviceScreen
 
-void main() => runApp(MyApp());
+void main() {
+  // await dotenv.load();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override

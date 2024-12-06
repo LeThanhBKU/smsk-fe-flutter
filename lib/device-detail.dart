@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/config.dart';
 import 'package:http/http.dart' as http;
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'schedule_page.dart';
@@ -25,13 +26,14 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
   void initState() {
     super.initState();
     _fetchRelays(widget.productId); // Lấy dữ liệu từ API
+    print(Config.socketUrl);
     _connectWebSocket(); // Kết nối WebSocket
   }
 
   // Kết nối WebSocket
   void _connectWebSocket() {
     try {
-      _channel = WebSocketChannel.connect(Uri.parse('ws://172.20.10.3:8080/websocket'));
+      _channel = WebSocketChannel.connect(Uri.parse('${Config.socketUrl}'));
 
       // Gửi yêu cầu đăng ký sự kiện
       _channel?.sink.add(jsonEncode({
@@ -68,7 +70,7 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
   Future<void> _fetchRelays(String productId) async {
     try {
       final response =
-          await http.get(Uri.parse('http://172.20.10.3:8080/api/v1/relays/$productId'));
+          await http.get(Uri.parse('${Config.baseUrl}/api/v1/relays/$productId'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         setState(() {
@@ -111,7 +113,7 @@ class _DeviceDetailScreenState extends State<DeviceDetailScreen> {
         // _updateRelayStatusInUI(relay);
 
         final response = await http.patch(
-          Uri.parse('http://172.20.10.3:8080/api/v1/relays/update'),
+          Uri.parse('${Config.baseUrl}/api/v1/relays/update'),
           headers: {'Content-Type': 'application/json'},
           body: jsonEncode({
             'id': relay["id"],

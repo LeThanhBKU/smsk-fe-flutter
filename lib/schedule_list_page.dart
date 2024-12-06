@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/config/config.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'schedule.dart'; // Import model Schedule
 import 'edit_schedule_page.dart'; // Import trang chỉnh sửa
@@ -119,7 +120,7 @@ class _ScheduleListPageState extends State<ScheduleListPage> {
     try {
       // Gửi yêu cầu PATCH
       final response = await http.patch(
-        Uri.parse('http://172.20.10.3:8080/api/v1/schedules/' + (schedule.id ?? "")),
+        Uri.parse('${Config.baseUrl}/api/v1/schedules/' + (schedule.id ?? "")),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(convertScheduleToTaskData(schedule)),
       );
@@ -145,7 +146,7 @@ class _ScheduleListPageState extends State<ScheduleListPage> {
   }
 
   Future<void> deleteSchedule(String id) async {
-    final url = Uri.parse('http://172.20.10.3:8080/api/v1/schedules/' + id);
+    final url = Uri.parse('${Config.baseUrl}/api/v1/schedules/' + id);
     try {
       final response = await http.delete(url);
       if (response.statusCode == 200) {
@@ -215,7 +216,7 @@ class _ScheduleListPageState extends State<ScheduleListPage> {
   }
 
   Future<void> fetchSchedules() async {
-    final url = Uri.parse('http://172.20.10.3:8080/api/v1/schedules/' + widget.productId);
+    final url = Uri.parse('${Config.baseUrl}/api/v1/schedules/' + widget.productId);
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
